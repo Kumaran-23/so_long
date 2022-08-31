@@ -3,7 +3,7 @@
 void    load_walls(t_game *var)
 {
 	var->file = mlx_xpm_file_to_image(var->mlx,
-			"./img/wall.xpm", &var->pxl, &var->pxl);
+			"img/wall.xpm", &var->pxl, &var->pxl);
 	mlx_put_image_to_window (var->mlx, var->win,
 		var->file, var->pxl * var->x,
 		var->pxl * var->y);
@@ -25,7 +25,7 @@ void	load_player(t_game *var)
 void	load_collectible(t_game *var)
 {
 	var->file = mlx_xpm_file_to_image(var->mlx,
-			"./img/melon.xpm", &var->pxl, &var->pxl);
+			"img/melon.xpm", &var->pxl, &var->pxl);
 	mlx_put_image_to_window (var->mlx, var->win,
 		var->file, var->pxl * var->x,
 		var->pxl * var->y);
@@ -37,7 +37,7 @@ void	load_exit(t_game *var)
 	if (var->collectibles == 0)
 	{	
 		var->file = mlx_xpm_file_to_image(var->mlx,
-				"./img/opening.xpm", &var->pxl, &var->pxl);
+				"img/opening.xpm", &var->pxl, &var->pxl);
 		mlx_put_image_to_window (var->mlx, var->win,
 		var->file, var->pxl * var->x,
 		var->pxl * var->y);
@@ -46,7 +46,7 @@ void	load_exit(t_game *var)
 	else
 	{
 		var->file = mlx_xpm_file_to_image(var->mlx,
-			"./img/door.xpm", &var->pxl, &var->pxl);
+			"img/door.xpm", &var->pxl, &var->pxl);
 		mlx_put_image_to_window (var->mlx, var->win,
 		var->file, var->pxl * var->x,
 		var->pxl * var->y);
@@ -63,7 +63,7 @@ void	load_floor(t_game *var)
 		while ((var->x) < (var->map_row))
 		{
 			var->file = mlx_xpm_file_to_image(var->mlx,
-					"./img/floor.xpm", &var->pxl, &var->pxl);
+					"img/floor.xpm", &var->pxl, &var->pxl);
 			mlx_put_image_to_window (var->mlx, var->win,
 				var->file, var->pxl * var->x,
 				var->pxl * var->y);

@@ -24,7 +24,7 @@ void	right(t_game *var)
 		var->map[var->player_y][var->player_x + 1] = 'P';
 	}
 	var->player_move++;
-	var->player_dir = get_right();
+	var->player_dir = "./img/catright1.xpm";
 }
 
 void	left(t_game *var)
@@ -51,7 +51,7 @@ void	left(t_game *var)
 		var->map[var->player_y][var->player_x - 1] = 'P';
 	}
 	var->player_move++;
-	var->player_dir = get_left();
+	var->player_dir = "./img/catleft1.xpm";
 }
 
 void	up(t_game *var)
@@ -78,7 +78,7 @@ void	up(t_game *var)
 		var->map[var->player_y - 1][var->player_x] = 'P';
 	}
 	var->player_move++;
-	var->player_dir = get_back();
+	var->player_dir = "./img/catback2.xpm";
 }
 
 void	down(t_game *var)
@@ -105,7 +105,7 @@ void	down(t_game *var)
 		var->map[var->player_y + 1][var->player_x] = 'P';
 	}
 	var->player_move++;
-	var->player_dir = get_front();
+	var->player_dir = "./img/catfront1.xpm";
 }
 
 int	key_input(int keyboard, t_game *var)
@@ -125,10 +125,10 @@ int	key_input(int keyboard, t_game *var)
 	load_window(var);
 	move = ft_itoa(var->player_move);
 	mlx_string_put(var->mlx, var->win,
-		50, 10, 0xFFFFFF,
+		10, 10, 0xFFFFFF,
 		"MOVES: ");
 	mlx_string_put(var->mlx, var->win,
-		90, 10, 0xFFFFFF, move);
+		50, 10, 0xFFFFFF, move);
 	free(move);
     return (0);
 }

@@ -3,7 +3,7 @@
 void    load_enemy(t_game *var)
 {
 	var->file = mlx_xpm_file_to_image(var->mlx,
-			"./img/enemy2.xpm", &var->pxl, &var->pxl);
+			"img/enemy2.xpm", &var->pxl, &var->pxl);
 	mlx_put_image_to_window (var->mlx, var->win,
 		var->file, var->pxl * var->x,
 		var->pxl * var->y);

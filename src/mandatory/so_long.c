@@ -1,5 +1,11 @@
 #include "../inc/so_long.h"
 
+int	mouse_input(int mouse, t_game *var)
+{
+	if (mouse == 1)
+		load_window(var);
+	return (0);
+}
 void	arg_check(int argc, char **argv)
 {
 	if (argc != 2)
@@ -23,7 +29,7 @@ void	game_init(t_game *var)
 	var->pxl = 0;
 	var->player = 0;
 	var->player_move = 0;
-	var->player_dir = "./img/catfront1.xpm";
+	var->player_dir = "img/catfront1.xpm";
 	var->collectibles = 0;
 	var->exits = 0;
 	var->enemy = 0;
@@ -40,6 +46,7 @@ int main(int argc, char **argv)
 	window_create(&var);
     mlx_hook(var.win, 2, 1L << 0, key_input, &var);
 	mlx_hook(var.win, 17, 1L << 5, close_window, &var);
+	mlx_hook(var.win,07, 0L,mouse_input,&var);
 	mlx_loop(var.mlx);
 	exit(0);
 }

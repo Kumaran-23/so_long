@@ -35,7 +35,7 @@ $(NAME):	$(OBJ)
 			@make -C $(LIBFT)
 			@cp libft/libft.a .
 			@make -C $(MLX)
-			@$(CC) $(CFLAGS) $(LEAKS) $(OBJ) $(HEADER) libft.a $(MLXCC) -o $(NAME) 
+			@$(CC) $(CFLAGS) $(OBJ) $(HEADER) libft.a $(MLXCC) -o $(NAME) 
 			@echo "$(GREEN)so_long Done!$(WHITE)"
 
 %.o: %.c

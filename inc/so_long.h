@@ -55,7 +55,7 @@ void	load_floor(t_game *var);
 void    load_enemy(t_game *var);
 int		close_window(t_game *var);
 int		c_collected(t_game *var);
-void    load_window(t_game *var);
+void	load_window(t_game *var);
 void	window_create(t_game *var);
 
 /*keyhook*/
