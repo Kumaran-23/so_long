@@ -11,8 +11,8 @@ void    load_enemy(t_game *var)
 }
 
 int	close_window(t_game *var)
-{	
-	mlx_destroy_window(var->mlx, var->win);
+{
+    mlx_destroy_window(var->mlx, var->win);
 	exit (0);
 	return (1);
 }
@@ -39,8 +39,8 @@ int	c_collected(t_game *var)
 
 void    load_window(t_game *var)
 {
-    var->collectibles = c_collected(var);
-    load_floor(var);
+    //var->collectibles = c_collected(var);
+    //load_floor(var);
     var->y = 0;
     while (var->y < var->map_coll)
     {
@@ -49,13 +49,15 @@ void    load_window(t_game *var)
         {
             if (var->map[var->y][var->x] == 'P')
                 load_player(var);
-            if (var->map[var->y][var->x] == 'E')
+            else if (var->map[var->y][var->x] == 'E')
                 load_exit(var);
-            if (var->map[var->y][var->x] == 'C')
+            else if (var->map[var->y][var->x] == 'C')
                 load_collectible(var);
-            if (var->map[var->y][var->x] == '1')
+            else if (var->map[var->y][var->x] == '1')
                 load_walls(var);
-            if (var->map[var->y][var->x] == 'M')
+            else if (var->map[var->y][var->x] == '0')
+                load_floor(var);
+            else if (var->map[var->y][var->x] == 'M')
                 load_enemy(var);
             var->x++;
         }

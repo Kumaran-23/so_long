@@ -16,7 +16,6 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 	char	**map;
-	char	*file;
 	int		map_row;
 	int		map_coll;
 	int		map_area;
@@ -26,9 +25,13 @@ typedef struct s_game
 	int		player_x;
 	int		player_y;
 	int		player_move;
-	int		play_pos;
 	int		loop;
 	char	*player_dir;
+	char	*exit;
+	char	*floor;
+	char	*collect;
+	char	*wall;
+	char	*file;
 	int		collectibles;
 	int		player;
 	int		exits;
@@ -74,10 +77,6 @@ void	map_validate(char **argv, t_game *game);
 void	print_matrix(t_game *var);
 
 /*animate*/
-char	*get_back(void);
-char	*get_front(void);
-char	*get_right(void);
-char	*get_left(void);
 void	win_message(t_game *var);
 
 /*so_long*/

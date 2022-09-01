@@ -13,6 +13,7 @@ void	right(t_game *var)
 	{
 		var->map[var->player_y][var->player_x] = '0';
 		var->map[var->player_y][var->player_x + 1] = 'P';
+		var->collectibles--;
 	}
 	else if (var->map[var->player_y][var->player_x + 1] == 'E' && var->collectibles == 0)
         win_message(var);
@@ -24,7 +25,7 @@ void	right(t_game *var)
 		var->map[var->player_y][var->player_x + 1] = 'P';
 	}
 	var->player_move++;
-	var->player_dir = "./img/catright1.xpm";
+	var->player_dir = "img/catright1.xpm";
 }
 
 void	left(t_game *var)
@@ -40,6 +41,7 @@ void	left(t_game *var)
 	{
 		var->map[var->player_y][var->player_x] = '0';
 		var->map[var->player_y][var->player_x - 1] = 'P';
+		var->collectibles--;
 	}
 	else if (var->map[var->player_y][var->player_x - 1] == 'E' && var->collectibles == 0)
         win_message(var);
@@ -51,7 +53,7 @@ void	left(t_game *var)
 		var->map[var->player_y][var->player_x - 1] = 'P';
 	}
 	var->player_move++;
-	var->player_dir = "./img/catleft1.xpm";
+	var->player_dir = "img/catleft1.xpm";
 }
 
 void	up(t_game *var)
@@ -67,6 +69,7 @@ void	up(t_game *var)
 	{
 		var->map[var->player_y][var->player_x] = '0';
 		var->map[var->player_y - 1][var->player_x] = 'P';
+		var->collectibles--;
 	}
 	else if (var->map[var->player_y - 1][var->player_x] == 'E' && var->collectibles == 0)
         win_message(var);
@@ -78,7 +81,7 @@ void	up(t_game *var)
 		var->map[var->player_y - 1][var->player_x] = 'P';
 	}
 	var->player_move++;
-	var->player_dir = "./img/catback2.xpm";
+	var->player_dir = "img/catback2.xpm";
 }
 
 void	down(t_game *var)
@@ -94,6 +97,7 @@ void	down(t_game *var)
 	{
 		var->map[var->player_y][var->player_x] = '0';
 		var->map[var->player_y + 1][var->player_x] = 'P';
+		var->collectibles--;
 	}
 	else if (var->map[var->player_y + 1][var->player_x] == 'E' && var->collectibles == 0)
         win_message(var);
@@ -105,7 +109,7 @@ void	down(t_game *var)
 		var->map[var->player_y + 1][var->player_x] = 'P';
 	}
 	var->player_move++;
-	var->player_dir = "./img/catfront1.xpm";
+	var->player_dir = "img/catfront1.xpm";
 }
 
 int	key_input(int keyboard, t_game *var)

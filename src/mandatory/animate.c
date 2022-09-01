@@ -1,35 +1,12 @@
 #include "../inc/so_long.h"
 
-char	*get_front(void)
+void	destroy_img(t_game *var)
 {
-	char	*img;
-
-	img = "./img/catfront1.xpm";
-	return (img);
-}
-
-char	*get_back(void)
-{
-	char	*img;
-
-	img = "./img/catback2.xpm";
-	return (img);
-}
-
-char	*get_right(void)
-{
-	char	*img;
-
-	img = "./img/catright1.xpm";
-	return (img);
-}
-
-char	*get_left(void)
-{
-	char	*img;
-
-	img = "./img/catleft1.xpm";
-	return (img);
+	mlx_destroy_image(var->mlx, var->file);
+	mlx_destroy_image(var->mlx, var->collect);
+	mlx_destroy_image(var->mlx, var->floor);
+	mlx_destroy_image(var->mlx, var->exit);
+	mlx_destroy_image(var->mlx, var->wall);
 }
 
 void	win_message(t_game *var)
