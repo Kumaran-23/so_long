@@ -54,26 +54,6 @@ void	load_exit(t_game *var)
 	}
 }
 
-/*void	load_floor(t_game *var)
-{
-	var->y = 0;
-	while ((var->y) < (var->map_coll))
-	{
-		var->x = 0;
-		while ((var->x) < (var->map_row))
-		{
-			var->floor = mlx_xpm_file_to_image(var->mlx,
-					"img/floor.xpm", &var->pxl, &var->pxl);
-			mlx_put_image_to_window (var->mlx, var->win,
-				var->floor, var->pxl * var->x,
-				var->pxl * var->y);
-			mlx_destroy_image(var->mlx, var->floor);
-			var->x++;
-		}
-		var->y++;
-	}
-}*/
-
 void	load_floor(t_game *var)
 {
 	var->floor = mlx_xpm_file_to_image(var->mlx,

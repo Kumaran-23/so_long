@@ -114,8 +114,6 @@ void	down(t_game *var)
 
 int	key_input(int keyboard, t_game *var)
 {
-	char	*move;
-
 	if (keyboard == 65307)
 		close_window(var);
 	if (keyboard == 115)
@@ -127,12 +125,5 @@ int	key_input(int keyboard, t_game *var)
 	if (keyboard == 97)
 		left(var);
 	load_window(var);
-	move = ft_itoa(var->player_move);
-	mlx_string_put(var->mlx, var->win,
-		10, 10, 0xFFFFFF,
-		"MOVES: ");
-	mlx_string_put(var->mlx, var->win,
-		50, 10, 0xFFFFFF, move);
-	free(move);
     return (0);
 }

@@ -2,12 +2,18 @@
 
 void    load_enemy(t_game *var)
 {
-	var->file = mlx_xpm_file_to_image(var->mlx,
+	var->en = mlx_xpm_file_to_image(var->mlx,
 			"img/enemy2.xpm", &var->pxl, &var->pxl);
 	mlx_put_image_to_window (var->mlx, var->win,
-		var->file, var->pxl * var->x,
+		var->en, var->pxl * var->x,
 		var->pxl * var->y);
-	mlx_destroy_image(var->mlx, var->file);
+	mlx_destroy_image(var->mlx, var->en);
+}
+
+void	win_message(t_game *var)
+{
+	ft_printf("You collected all the melons! You win!!\n");
+	close_window(var);
 }
 
 int	close_window(t_game *var)
@@ -17,30 +23,8 @@ int	close_window(t_game *var)
 	return (1);
 }
 
-int	c_collected(t_game *var)
-{
-    int i;
-
-    i = 0;
-	var->y = 0;
-	while ((var->y) < (var->map_coll))
-	{
-		var->x = 0;
-		while ((var->x) < (var->map_row))
-		{
-			if (var->map[var->y][var->x] == 'C')
-                i++;
-			var->x++;
-		}
-		var->y++;
-	}
-	return (i);
-}
-
 void    load_window(t_game *var)
 {
-    //var->collectibles = c_collected(var);
-    //load_floor(var);
     var->y = 0;
     while (var->y < var->map_coll)
     {
@@ -63,6 +47,7 @@ void    load_window(t_game *var)
         }
          var->y++;
     }
+    display_moves(var);
 }
 
 void	window_create(t_game *var)

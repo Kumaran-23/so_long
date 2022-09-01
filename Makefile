@@ -19,7 +19,7 @@ WHITE		=	\033[0;97m
 
 MAN_DIR		=	mandatory/
 MAN_FILES	=	map_check image_load window_load keyhook\
-				map_load animate so_long
+				map_load so_long
 
 SRC_FILES	=	$(addprefix $(MAN_DIR), $(MAN_FILES))
 

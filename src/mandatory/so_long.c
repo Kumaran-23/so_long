@@ -1,11 +1,16 @@
 #include "../inc/so_long.h"
 
-int	mouse_input(int mouse, t_game *var)
+void	display_moves(t_game *var)
 {
-	if (mouse == 1)
-		load_window(var);
-	return (0);
+	char	*moves;
+
+	moves = ft_itoa(var->player_move);
+	mlx_string_put(var->mlx, var->win, 10, 20, 0xFFFFFF,
+		"MOVES: ");
+	mlx_string_put(var->mlx, var->win, 70, 20, 0xFFFFFF, moves);
+	free(moves);
 }
+
 void	arg_check(int argc, char **argv)
 {
 	if (argc != 2)
@@ -32,7 +37,6 @@ void	game_init(t_game *var)
 	var->player_dir = "img/catfront1.xpm";
 	var->collectibles = 0;
 	var->exits = 0;
-	var->enemy = 0;
 }
 
 int main(int argc, char **argv)
@@ -46,7 +50,6 @@ int main(int argc, char **argv)
 	window_create(&var);
     mlx_hook(var.win, 2, 1L << 0, key_input, &var);
 	mlx_hook(var.win, 17, 1L << 5, close_window, &var);
-	mlx_hook(var.win,07, 0L,mouse_input,&var);
 	mlx_loop(var.mlx);
 	exit(0);
 }

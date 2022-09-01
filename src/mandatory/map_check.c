@@ -66,8 +66,6 @@ void	check_assets(char *buffer, t_game *var)
 			var->collectibles++;
 		if (buffer[i] == 'E')
 			var->exits++;
-		if (buffer[i] == 'M')
-			var->enemy++;
 		if (buffer[i] == '\n')
 			var->map_coll++;
 		i++;
