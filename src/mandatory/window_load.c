@@ -2,12 +2,22 @@
 
 void    load_enemy(t_game *var)
 {
-	var->en = mlx_xpm_file_to_image(var->mlx,
+    if (var->enemy == 1)
+    {
+        var->enemies = mlx_xpm_file_to_image(var->mlx,
+			"img/enemy1.xpm", &var->pxl, &var->pxl);
+            mlx_put_image_to_window (var->mlx, var->win,
+            var->enemies, var->pxl * var->x, var->pxl * var->y);
+        mlx_destroy_image(var->mlx, var->enemies);
+    }
+    else if (var->enemy == 2)
+    {
+         var->enemies = mlx_xpm_file_to_image(var->mlx,
 			"img/enemy2.xpm", &var->pxl, &var->pxl);
-	mlx_put_image_to_window (var->mlx, var->win,
-		var->en, var->pxl * var->x,
-		var->pxl * var->y);
-	mlx_destroy_image(var->mlx, var->en);
+            mlx_put_image_to_window (var->mlx, var->win,
+            var->enemies, var->pxl * var->x, var->pxl * var->y);
+        mlx_destroy_image(var->mlx, var->enemies);
+    }
 }
 
 void	win_message(t_game *var)
@@ -23,7 +33,7 @@ int	close_window(t_game *var)
 	return (1);
 }
 
-void    load_window(t_game *var)
+int    load_window(t_game *var)
 {
     var->y = 0;
     while (var->y < var->map_coll)
@@ -31,6 +41,7 @@ void    load_window(t_game *var)
         var->x = 0;
         while (var->x < var->map_row)
         {
+            display_moves(var);
             if (var->map[var->y][var->x] == 'P')
                 load_player(var);
             else if (var->map[var->y][var->x] == 'E')
@@ -47,7 +58,8 @@ void    load_window(t_game *var)
         }
          var->y++;
     }
-    display_moves(var);
+    //ft_printf("%d\n", var->loop);
+    return (0);
 }
 
 void	window_create(t_game *var)

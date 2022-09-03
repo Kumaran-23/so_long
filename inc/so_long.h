@@ -32,10 +32,12 @@ typedef struct s_game
 	char	*collect;
 	char	*wall;
 	char	*file;
-	char	*en;
+	char	*bar;
+	char	*enemies;
 	int		collectibles;
 	int		player;
 	int		exits;
+	int		enemy;
 }	t_game;
 
 /*map_check*/
@@ -55,7 +57,7 @@ void	load_floor(t_game *var);
 /*window_load*/
 void    load_enemy(t_game *var);
 int		close_window(t_game *var);
-void	load_window(t_game *var);
+int		load_window(t_game *var);
 void	window_create(t_game *var);
 void	win_message(t_game *var);
 
@@ -77,6 +79,8 @@ void	print_matrix(t_game *var);
 /*so_long*/
 void	arg_check(int argc, char **argv);
 void	display_moves(t_game *var);
+int		animate(t_game *var);
 void	game_init(t_game *var);
+void	load_bar(t_game *var);
 
 #endif

@@ -125,5 +125,6 @@ int	key_input(int keyboard, t_game *var)
 	if (keyboard == 97)
 		left(var);
 	load_window(var);
+    ft_printf("%d\n", var->player_move);
     return (0);
 }
