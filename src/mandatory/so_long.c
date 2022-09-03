@@ -13,14 +13,20 @@ void	display_moves(t_game *var)
 
 int	animate(t_game *var)
 {
-	if (var->loop < 40)
+	if (var->loop < 30)
 	{
 		var->loop++;
 		if (var->enemy == 2)
 			var->enemy = 1;
+		if (var->melon == 2)
+			var->melon = 1;
 		var->enemy++;
-		if (var->loop < 20)
+		var->melon++;
+		if (var->loop < 15)
+		{
 			var->enemy = 1;
+			var->melon = 1;
+		}
 		if (var->loop > 0)
 		load_window(var);
 		return (0);
@@ -56,6 +62,7 @@ void	game_init(t_game *var)
 	var->collectibles = 0;
 	var->exits = 0;
 	var->enemy = 1;
+	var->melon = 1;
 	var->loop = 0;
 }
 

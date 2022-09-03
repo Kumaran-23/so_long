@@ -36,22 +36,6 @@ char	*join_line(char *line, char c)
 	return (str);
 }
 
-int	check_line(char *line)
-{
-	int	i;
-
-	i = 0;
-	if (!line)
-		return (0);
-	while (line[i])
-	{
-		if (line[i] == '\0')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 char	*get_map(int fd)
 {
 	char	buffer;
@@ -63,7 +47,7 @@ char	*get_map(int fd)
 		line = NULL;
 	line = malloc(1);
 	line[0] = '\0';
-	while (!check_line(line) && rd_bytes > 0)
+	while (rd_bytes > 0)
 	{
 		rd_bytes = read(fd, &buffer, 1);
 		if ((rd_bytes == 0 && line[0] == '\0') || rd_bytes < 0)
@@ -78,7 +62,6 @@ char	*get_map(int fd)
 	return (line);
 }
 
-
 void	map_validate(char **argv, t_game *var)
 {
 	int		i;
@@ -90,6 +73,8 @@ void	map_validate(char **argv, t_game *var)
 	if (fd == -1)
 		error("Map could not be opened");
 	buffer = get_map(fd);
+	if (buffer == 0)
+		error("Map is empty");
 	check_assets(buffer, var);
 	check_chars(buffer);
 	var->map = ft_split(buffer, '\n');

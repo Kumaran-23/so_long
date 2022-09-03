@@ -24,12 +24,22 @@ void	load_player(t_game *var)
 
 void	load_collectible(t_game *var)
 {
-	var->collect = mlx_xpm_file_to_image(var->mlx,
-			"img/melon.xpm", &var->pxl, &var->pxl);
-	mlx_put_image_to_window (var->mlx, var->win,
-		var->collect, var->pxl * var->x,
-		var->pxl * var->y);
-	mlx_destroy_image(var->mlx, var->collect);
+	if (var->melon == 1)
+    {
+        var->collect = mlx_xpm_file_to_image(var->mlx,
+			"img/melon4.xpm", &var->pxl, &var->pxl);
+            mlx_put_image_to_window (var->mlx, var->win,
+            var->collect, var->pxl * var->x, var->pxl * var->y);
+        mlx_destroy_image(var->mlx, var->collect);
+    }
+    else if (var->melon == 2)
+    {
+         var->collect = mlx_xpm_file_to_image(var->mlx,
+			"img/melon5.xpm", &var->pxl, &var->pxl);
+            mlx_put_image_to_window (var->mlx, var->win,
+            var->collect, var->pxl * var->x, var->pxl * var->y);
+        mlx_destroy_image(var->mlx, var->collect);
+    }
 }
 
 void	load_exit(t_game *var)

@@ -38,6 +38,7 @@ typedef struct s_game
 	int		player;
 	int		exits;
 	int		enemy;
+	int		melon;
 }	t_game;
 
 /*map_check*/

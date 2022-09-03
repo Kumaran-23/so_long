@@ -58,7 +58,6 @@ int    load_window(t_game *var)
         }
          var->y++;
     }
-    //ft_printf("%d\n", var->loop);
     return (0);
 }
 
