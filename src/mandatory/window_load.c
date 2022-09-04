@@ -6,7 +6,7 @@
 /*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:29:10 by snair             #+#    #+#             */
-/*   Updated: 2022/09/04 16:15:27 by snair            ###   ########.fr       */
+/*   Updated: 2022/09/04 19:33:32 by snair            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	close_window(t_game *var)
 {
 	mlx_destroy_window(var->mlx, var->win);
 	exit (0);
-	return (1);
+	return (0);
 }
 
 int	load_window(t_game *var)

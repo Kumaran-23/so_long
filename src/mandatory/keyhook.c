@@ -6,7 +6,7 @@
 /*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:31:38 by snair             #+#    #+#             */
-/*   Updated: 2022/09/04 15:47:56 by snair            ###   ########.fr       */
+/*   Updated: 2022/09/05 07:23:19 by snair            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,5 @@ int	key_input(int keyboard, t_game *var)
 	if (keyboard == 97)
 		left(var);
 	load_window(var);
-	ft_printf("%d\n", var->player_move);
 	return (0);
 }

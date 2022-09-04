@@ -6,7 +6,7 @@
 /*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:28:46 by snair             #+#    #+#             */
-/*   Updated: 2022/09/04 15:54:36 by snair            ###   ########.fr       */
+/*   Updated: 2022/09/04 19:35:25 by snair            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	arg_check(int argc, char **argv)
 	if (argc != 2)
 	{
 		error("Must have only 2 number of arguments");
-		exit(0);
+		exit(1);
 	}
 	if (!ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])))
 	{

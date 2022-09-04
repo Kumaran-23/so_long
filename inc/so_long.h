@@ -6,7 +6,7 @@
 /*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:30:08 by snair             #+#    #+#             */
-/*   Updated: 2022/09/04 14:32:19 by snair            ###   ########.fr       */
+/*   Updated: 2022/09/05 07:20:51 by snair            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,31 +54,31 @@ typedef struct s_game
 }	t_game;
 
 /*map_check*/
-void    error(char *message);
+void	error(char *message);
 void	check_wall_x(t_game *var);
 void	check_wall_y(t_game *var);
 void	check_map(char *buffer, t_game *var);
 void	check_assets(char *buffer, t_game *var);
 
 /*image_load*/
-void    load_walls(t_game *var);
+void	load_walls(t_game *var);
 void	load_player(t_game *var);
 void	load_collectible(t_game *var);
 void	load_exit(t_game *var);
 void	load_floor(t_game *var);
 
 /*window_load*/
-void    load_enemy(t_game *var);
+void	load_enemy(t_game *var);
 int		close_window(t_game *var);
 int		load_window(t_game *var);
 void	window_create(t_game *var);
 void	win_message(t_game *var);
 
 /*keyhook*/
-void    up(t_game *var);
-void    down(t_game *var);
-void    right(t_game *var);
-void    left(t_game *var);
+void	up(t_game *var);
+void	down(t_game *var);
+void	right(t_game *var);
+void	left(t_game *var);
 int		key_input(int keyboard, t_game *var);
 
 /*map_load*/

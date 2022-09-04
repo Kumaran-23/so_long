@@ -6,7 +6,7 @@
 /*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:29:38 by snair             #+#    #+#             */
-/*   Updated: 2022/09/04 15:52:54 by snair            ###   ########.fr       */
+/*   Updated: 2022/09/04 18:42:26 by snair            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	map_validate(char **argv, t_game *var)
 	if (fd == -1)
 		error("Map could not be found");
 	bytes = read(fd, buffer, 600);
-	buffer[bytes] = '\0';
 	free_buffer(buffer, bytes);
+	buffer[bytes] = '\0';
 	check_assets(buffer, var);
 	check_chars(buffer);
 	var->map = ft_split(buffer, '\n');

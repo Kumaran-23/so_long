@@ -5,11 +5,11 @@ HEADER		= -I inc
 LIBFT		= libft/
 SRC_DIR		= src/
 MLX			= mlx/
-MLXCC		=	-L ./mlx -lmlx -lXext -lX11 -lm -lbsd
+MLXCC		=	-L ./mlx -lmlx -lXext -lX11 -lm -lz
 OBJ		= $(SRC:.c=.o)
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -g
-LEAKS	= -fsanitize=address
+LEAKS	= -fsanitize=address -g3
 RM			= rm -f
 
 GREEN		=	\033[1;92m

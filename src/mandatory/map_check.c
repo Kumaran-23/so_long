@@ -6,7 +6,7 @@
 /*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:29:58 by snair             #+#    #+#             */
-/*   Updated: 2022/09/04 15:51:26 by snair            ###   ########.fr       */
+/*   Updated: 2022/09/04 18:47:18 by snair            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	check_assets(char *buffer, t_game *var)
 	ft_printf("%d player\n", var-> player);
 	ft_printf("%d collect\n", var-> collectibles);
 	ft_printf("%d exit\n", var-> exits);
-	ft_printf("%d colls\n", var-> map_coll);
 	if (var->player != 1 || var->collectibles < 1 || var->exits != 1)
 		error("Incorrect number of Players, Collectibles or Exits or Enemys.");
 }
