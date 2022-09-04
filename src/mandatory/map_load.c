@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_load.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/04 14:29:38 by snair             #+#    #+#             */
+/*   Updated: 2022/09/04 15:52:54 by snair            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/so_long.h"
 
 void	check_chars(char *buffer)
@@ -10,74 +22,40 @@ void	check_chars(char *buffer)
 		if (buffer[i] != 'E' && buffer[i] != 'P' && buffer[i] != 'C'
 			&& buffer[i] != '1' && buffer[i] != '0' && buffer[i] != 'M'
 			&& buffer[i] != '\n')
-				error("Invalid map characters");
+			error("Invalid map characters");
 		i++;
 	}
 }
 
-char	*join_line(char *line, char c)
+static void	free_buffer(char *buffer, int bytes)
 {
-	int		i;
-	char	*str;
-
-	i = 0;
-	while (line[i])
-		i++;
-	str = malloc(i + 2);
-	i = 0;
-	while (line[i])
+	if ((bytes == 0 && buffer[0] == '\0') || bytes < 0)
 	{
-		str[i] = line[i];
-		i++;
+		error("Map is empty");
+		free(buffer);
+		buffer = NULL;
+		exit (0);
 	}
-	str[i] = c;
-	str[i + 1] = '\0';
-	free(line);
-	return (str);
-}
-
-char	*get_map(int fd)
-{
-	char	buffer;
-	char	*line;
-	int		rd_bytes;
-
-	rd_bytes = 1;
-	if (fd < 0)
-		line = NULL;
-	line = malloc(1);
-	line[0] = '\0';
-	while (rd_bytes > 0)
-	{
-		rd_bytes = read(fd, &buffer, 1);
-		if ((rd_bytes == 0 && line[0] == '\0') || rd_bytes < 0)
-		{
-			free(line);
-			return (NULL);
-		}
-		if (rd_bytes == 0 && line[0] != '\0')
-			return (line);
-		line = join_line(line, buffer);
-	}
-	return (line);
 }
 
 void	map_validate(char **argv, t_game *var)
 {
-	int		i;
-	int		fd;
 	char	*buffer;
+	int		bytes;
+	int		fd;
+	int		i;
 
-	i = 0;
 	fd = open(argv[1], O_RDONLY);
+	buffer = malloc(sizeof(char) * 600);
 	if (fd == -1)
-		error("Map could not be opened");
-	buffer = get_map(fd);
-	if (buffer == 0)
-		error("Map is empty");
+		error("Map could not be found");
+	bytes = read(fd, buffer, 600);
+	buffer[bytes] = '\0';
+	free_buffer(buffer, bytes);
 	check_assets(buffer, var);
 	check_chars(buffer);
 	var->map = ft_split(buffer, '\n');
+	i = 0;
 	while (var->map[0][i] != '\0')
 	{
 		var->map_row++;

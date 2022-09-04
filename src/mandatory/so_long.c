@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/04 14:28:46 by snair             #+#    #+#             */
+/*   Updated: 2022/09/04 15:54:36 by snair            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/so_long.h"
 
 void	display_moves(t_game *var)
@@ -27,7 +39,6 @@ int	animate(t_game *var)
 			var->enemy = 1;
 			var->melon = 1;
 		}
-		if (var->loop > 0)
 		load_window(var);
 		return (0);
 	}
@@ -66,16 +77,16 @@ void	game_init(t_game *var)
 	var->loop = 0;
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_game  var;
+	t_game	var;
 
-    arg_check(argc, argv);
-    game_init(&var);
+	arg_check(argc, argv);
+	game_init(&var);
 	map_validate(argv, &var);
 	print_matrix(&var);
 	window_create(&var);
-    mlx_hook(var.win, 2, 1L << 0, key_input, &var);
+	mlx_hook(var.win, 2, 1L << 0, key_input, &var);
 	mlx_hook(var.win, 17, 1L << 5, close_window, &var);
 	mlx_loop_hook(var.mlx, animate, &var);
 	mlx_loop(var.mlx);

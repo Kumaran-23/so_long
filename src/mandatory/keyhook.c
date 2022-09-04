@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keyhook.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/04 14:31:38 by snair             #+#    #+#             */
+/*   Updated: 2022/09/04 15:47:56 by snair            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/so_long.h"
 
 void	right(t_game *var)
@@ -15,8 +27,9 @@ void	right(t_game *var)
 		var->map[var->player_y][var->player_x + 1] = 'P';
 		var->collectibles--;
 	}
-	else if (var->map[var->player_y][var->player_x + 1] == 'E' && var->collectibles == 0)
-        win_message(var);
+	else if (var->map[var->player_y][var->player_x + 1] == 'E'
+		&& var->collectibles == 0)
+		win_message(var);
 	else if (var->map[var->player_y][var->player_x + 1] == 'E')
 		return ;
 	else
@@ -43,8 +56,9 @@ void	left(t_game *var)
 		var->map[var->player_y][var->player_x - 1] = 'P';
 		var->collectibles--;
 	}
-	else if (var->map[var->player_y][var->player_x - 1] == 'E' && var->collectibles == 0)
-        win_message(var);
+	else if (var->map[var->player_y][var->player_x - 1] == 'E'
+			&& var->collectibles == 0)
+		win_message(var);
 	else if (var->map[var->player_y][var->player_x - 1] == 'E')
 		return ;
 	else
@@ -71,8 +85,9 @@ void	up(t_game *var)
 		var->map[var->player_y - 1][var->player_x] = 'P';
 		var->collectibles--;
 	}
-	else if (var->map[var->player_y - 1][var->player_x] == 'E' && var->collectibles == 0)
-        win_message(var);
+	else if (var->map[var->player_y - 1][var->player_x] == 'E'
+		&& var->collectibles == 0)
+		win_message(var);
 	else if (var->map[var->player_y - 1][var->player_x] == 'E')
 		return ;
 	else
@@ -86,7 +101,7 @@ void	up(t_game *var)
 
 void	down(t_game *var)
 {
-    if (var->map[var->player_y + 1][var->player_x] == '1')
+	if (var->map[var->player_y + 1][var->player_x] == '1')
 		return ;
 	else if (var->map[var->player_y + 1][var->player_x] == 'M')
 	{
@@ -99,13 +114,14 @@ void	down(t_game *var)
 		var->map[var->player_y + 1][var->player_x] = 'P';
 		var->collectibles--;
 	}
-	else if (var->map[var->player_y + 1][var->player_x] == 'E' && var->collectibles == 0)
-        win_message(var);
+	else if (var->map[var->player_y + 1][var->player_x] == 'E'
+		&& var->collectibles == 0)
+		win_message(var);
 	else if (var->map[var->player_y + 1][var->player_x] == 'E')
 		return ;
 	else
 	{
-		var->map[var->player_y][var->player_x] = '0'; 
+		var->map[var->player_y][var->player_x] = '0';
 		var->map[var->player_y + 1][var->player_x] = 'P';
 	}
 	var->player_move++;
@@ -125,6 +141,6 @@ int	key_input(int keyboard, t_game *var)
 	if (keyboard == 97)
 		left(var);
 	load_window(var);
-    ft_printf("%d\n", var->player_move);
-    return (0);
+	ft_printf("%d\n", var->player_move);
+	return (0);
 }

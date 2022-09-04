@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_check.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/04 14:29:58 by snair             #+#    #+#             */
+/*   Updated: 2022/09/04 15:51:26 by snair            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/so_long.h"
 
-void    error(char *message)
+void	error(char *message)
 {
-    ft_printf("Error\n%s\n", message);
-    exit(1);
+	ft_printf("Error\n%s\n", message);
+	exit(1);
 }
 
 void	check_wall_x(t_game *var)
@@ -75,5 +87,5 @@ void	check_assets(char *buffer, t_game *var)
 	ft_printf("%d exit\n", var-> exits);
 	ft_printf("%d colls\n", var-> map_coll);
 	if (var->player != 1 || var->collectibles < 1 || var->exits != 1)
-		error("Incorrect number of Players, Collectibles or Exits or Enemys.");	
+		error("Incorrect number of Players, Collectibles or Exits or Enemys.");
 }

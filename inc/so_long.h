@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/04 14:30:08 by snair             #+#    #+#             */
+/*   Updated: 2022/09/04 14:32:19 by snair            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -71,9 +83,6 @@ int		key_input(int keyboard, t_game *var);
 
 /*map_load*/
 void	check_chars(char *buffer);
-char	*join_line(char *line, char c);
-int		check_line(char *line);
-char	*get_map(int fd);
 void	map_validate(char **argv, t_game *game);
 void	print_matrix(t_game *var);
 
