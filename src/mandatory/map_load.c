@@ -6,7 +6,7 @@
 /*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:29:38 by snair             #+#    #+#             */
-/*   Updated: 2022/09/04 18:42:26 by snair            ###   ########.fr       */
+/*   Updated: 2022/09/05 09:04:43 by snair            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ static void	free_buffer(char *buffer, int bytes)
 {
 	if ((bytes == 0 && buffer[0] == '\0') || bytes < 0)
 	{
-		error("Map is empty");
 		free(buffer);
 		buffer = NULL;
 		exit (0);

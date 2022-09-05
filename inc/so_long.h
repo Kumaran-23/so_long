@@ -6,7 +6,7 @@
 /*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:30:08 by snair             #+#    #+#             */
-/*   Updated: 2022/09/05 07:20:51 by snair            ###   ########.fr       */
+/*   Updated: 2022/09/05 08:49:53 by snair            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct s_game
 	char	*collect;
 	char	*wall;
 	char	*file;
-	char	*bar;
 	char	*enemies;
 	int		collectibles;
 	int		player;
