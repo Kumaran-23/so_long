@@ -6,7 +6,7 @@
 /*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:30:08 by snair             #+#    #+#             */
-/*   Updated: 2022/09/05 08:49:53 by snair            ###   ########.fr       */
+/*   Updated: 2022/09/06 11:01:54 by snair            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,5 @@ void	arg_check(int argc, char **argv);
 void	display_moves(t_game *var);
 int		animate(t_game *var);
 void	game_init(t_game *var);
-void	load_bar(t_game *var);
 
 #endif
