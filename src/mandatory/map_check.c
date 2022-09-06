@@ -6,7 +6,7 @@
 /*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:29:58 by snair             #+#    #+#             */
-/*   Updated: 2022/09/05 09:01:50 by snair            ###   ########.fr       */
+/*   Updated: 2022/09/06 10:42:27 by snair            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	error(char *message)
 
 void	check_wall_x(t_game *var)
 {
+	var->x = 0;
 	while ((var->x) < (var->map_row))
 	{
 		if (var->map[0][var->x] != '1')
@@ -86,5 +87,5 @@ void	check_assets(char *buffer, t_game *var)
 	ft_printf("%d collect\n", var-> collectibles);
 	ft_printf("%d exit\n", var-> exits);
 	if (var->player != 1 || var->collectibles < 1 || var->exits != 1)
-		error("Incorrect number of Players, Collectibles or Exits or Enemys.");
+		error("Incorrect number of Players, Collectibles or Exits.");
 }

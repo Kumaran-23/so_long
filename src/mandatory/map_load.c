@@ -6,7 +6,7 @@
 /*   By: snair <snair@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 14:29:38 by snair             #+#    #+#             */
-/*   Updated: 2022/09/05 09:04:43 by snair            ###   ########.fr       */
+/*   Updated: 2022/09/06 10:47:55 by snair            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,6 @@ void	check_chars(char *buffer)
 	}
 }
 
-static void	free_buffer(char *buffer, int bytes)
-{
-	if ((bytes == 0 && buffer[0] == '\0') || bytes < 0)
-	{
-		free(buffer);
-		buffer = NULL;
-		exit (0);
-	}
-}
-
 void	map_validate(char **argv, t_game *var)
 {
 	char	*buffer;
@@ -45,11 +35,10 @@ void	map_validate(char **argv, t_game *var)
 	int		i;
 
 	fd = open(argv[1], O_RDONLY);
-	buffer = malloc(sizeof(char) * 600);
+	buffer = malloc(sizeof(char) * 1000);
 	if (fd == -1)
 		error("Map could not be found");
-	bytes = read(fd, buffer, 600);
-	free_buffer(buffer, bytes);
+	bytes = read(fd, buffer, 1000);
 	buffer[bytes] = '\0';
 	check_assets(buffer, var);
 	check_chars(buffer);
